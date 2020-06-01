@@ -20,9 +20,17 @@ class Polyfit1D(object):
     def res(self):
         return self.y - self(self.x)
 
-    def plot(self, show=True):
+    @property
+    def parameters(self):
+        return self.coef
+
+    @property
+    def params(self):
+        return self.coef    
+
+    def plot(self, show=True, **kwds):
         import matplotlib.pyplot as plt
-        plt.plot(self.x, self.fitted(), c='red')
+        plt.plot(self.x, self.fitted(), c='red', **kwds)
         if self.w is None:
             plt.scatter(self.x, self.y, c='orange')
         else:
@@ -35,6 +43,11 @@ class Polyfit1D(object):
 
     def average_l1(self):
         return np.abs(self.res()).sum()/len(self.x)
+
+    # def naive_inv(self, y):
+    #     idxs = len(self.yinv) - np.searchsorted(self.yinv, y)
+    #     return self.x[idxs]
+
 
 
 def polyfit(x, y, w=None, deg=1):
