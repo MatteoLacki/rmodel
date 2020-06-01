@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(  name='rmodel',
         packages=find_packages(),
-        version='0.0.1',
+        version='0.0.2',
         description='rmodel: simple statistical models that follow R-like naming conventions',
         long_description='The point of this project is to set up a standardized UI for the statistical models one can use. The conventions are inspired by how it is handles in R. But, this is Python, so it must be way better, right?',
         author='MatteoLacki',
